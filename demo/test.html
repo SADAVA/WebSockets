@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>minimal | WebSockets | test.html</title>
+	</head>
+	<body>
+		<p>Hello world.</p>
+		<script>
+			// Create WebSocket connection.
+			const socket = new WebSocket("ws://localhost:8080");
+
+			let myID = -1;
+
+			// Connection opened
+			socket.addEventListener("open", function (event) {
+				socket.send("Hi all!");
+
+				event.target.onclose = function() {
+					console.log("disconnected");
+				}
+			});
+
+			// Listen for messages
+			socket.addEventListener("message", function (event) {
+				let message = event.data;
+
+				try {
+					message = JSON.parse(message);
+				} catch (error) {
+					console.log(Array(20).fill("=").join(""));
+					console.log("[ERROR] Invalid message from the server: ");
+					console.log(message.length < 100 ? message : message.slice(0, 100) + "...");
+					console.log(Array(20).fill("=").join(""));
+
+					return;
+				}
+
+				if(message.type === "your-id") {
+					myID = message.message;
+					document.title = "[" + myID + "] " + document.title;
+				} else if(message.type === "user-message") {
+					if(message.userID !== myID) console.log("[" + message.userID + "] " + message.message);
+				} else if(message.type === "server-message") {
+					console.log("[SERVER] " + message.message);
+				} else {
+					console.log("[ERROR] Invalid message type: " + message.type)
+				}
+			});
+		</script>
+	</body>
+</html>
