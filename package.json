@@ -1,0 +1,30 @@
+{
+  "name": "@sadava/websockets",
+  "version": "0.1.0",
+  "description": "Basic WebSocket server.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@sadava/bits": "0.0.3",
+    "@sadava/eventlistener": "0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SADAVA/WebSockets.git"
+  },
+  "keywords": [
+    "WebSockets"
+  ],
+  "author": "S.",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/SADAVA/WebSockets/issues"
+  },
+  "homepage": "https://github.com/SADAVA/WebSockets#readme"
+}
