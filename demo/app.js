@@ -21,7 +21,6 @@ server.on("error", error => {
 });
 
 server.on("connection", client => {
-	client.id = i++;
 	log(client.id, "CONNECTED");
 
 	client.send({

@@ -15,6 +15,8 @@ $ npm install @sadava/websockets
 const WebSockets = require("@sadava/websockets");
 ```
 
+See more in ```demo/``` folder.
+
 ## WebSocket methods
 
 ### # new Server();
