@@ -22,8 +22,8 @@ See more in ```demo/``` folder.
 ### # new Server();
 
 ### # Server.constructor(properties);
-```properties["host"] {string} IP address of the host```
-```properties["port"] {integer}```
+```properties["host"] {string} IP address of the host```  
+```properties["port"] {integer}```  
 ```properties["backlog"] {integer} Maximum allowed concurrent connections```
 
 ### # Server.listen(callback);
